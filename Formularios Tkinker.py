@@ -39,23 +39,23 @@ ventana.geometry("800x600")
 ventana.resizable(True, True)
 
 
-tk.Label(ventana, text="Nombre: ").grid(row=0, column=0, padx=5, pady=5, sticky="e")
+tk.Label(ventana, text="Nombre: ").grid(row=0, column=0, padx=5, pady=5)
 cnombre = tk.Entry(ventana, width=30)
 cnombre.grid(row=0, column=1, padx=5, pady=5)
 
-tk.Label(ventana, text="Apellido: ").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+tk.Label(ventana, text="Apellido: ").grid(row=1, column=0, padx=5, pady=5)
 capellido = tk.Entry(ventana, width=30)
 capellido.grid(row=1, column=1, padx=5, pady=5)
 
-tk.Label(ventana, text="Edad: ").grid(row=2, column=0, padx=5, pady=5, sticky="e")
+tk.Label(ventana, text="Edad: ").grid(row=2, column=0, padx=5, pady=5)
 cedad = tk.Entry(ventana, width=30)
 cedad.grid(row=2, column=1, padx=5, pady=5)
 
-tk.Label(ventana, text="Dirección: ").grid(row=3, column=0, padx=5, pady=5, sticky="e")
+tk.Label(ventana, text="Dirección: ").grid(row=3, column=0, padx=5, pady=5)
 cdireccion = tk.Entry(ventana, width=30)
 cdireccion.grid(row=3, column=1, padx=5, pady=5)
 
-tk.Label(ventana, text="Ciudades: ").grid(row=4, column=0, padx=5, pady=5, sticky="e")
+tk.Label(ventana, text="Ciudades: ").grid(row=4, column=0, padx=5, pady=5)
 cuadro_lista = tk.Listbox(ventana, width=30, height=5, selectmode="multiple")
 cuadro_lista.grid(row=4, column=1, padx=5, pady=5)
 elementos = ["Cartagena", "Bucaramanga", "Santa Marta", "Bogotá", "Medellín"]
@@ -66,6 +66,7 @@ for index, elemento in enumerate(elementos):
 variable = tk.IntVar()
 tk.Radiobutton(ventana, text="Masculino", variable=variable, value=1, command=obtener_seleccion).grid(row=5, column=1, padx=5, pady=5, sticky="w")
 tk.Radiobutton(ventana, text="Femenino", variable=variable, value=2, command=obtener_seleccion).grid(row=6, column=1, padx=5, pady=5, sticky="w")
+
 
 tk.Button(ventana, text="Registrar", command=registrar).grid(row=7, column=1, padx=5, pady=5)
 
