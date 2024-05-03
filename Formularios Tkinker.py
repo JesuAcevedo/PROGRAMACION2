@@ -8,12 +8,14 @@ def registrar():
     direccion = cdireccion.get()
     genero = obtener_seleccion()
     ciudades = obtener_ciudad()
+    telefono = ctelofono.get()
     mensaje = f"Información registrada:\n\n"
     mensaje += f"Nombre: {nombre}\n"
     mensaje += f"Apellido: {apellido}\n"
     mensaje += f"Edad: {edad}\n"
     mensaje += f"Dirección: {direccion}\n"
-    mensaje += f"Género: {genero}\n"
+    mensaje += f"Sexo: {genero}\n"
+    mensaje += f"Telefono: {telefono}\n"
     mensaje += f"Ciudades seleccionadas: {', '.join(ciudades)}"
     messagebox.showinfo("Información Registrada", mensaje)
 
@@ -55,19 +57,24 @@ tk.Label(ventana, text="Dirección: ").grid(row=3, column=0, padx=5, pady=5)
 cdireccion = tk.Entry(ventana, width=30)
 cdireccion.grid(row=3, column=1, padx=5, pady=5)
 
-tk.Label(ventana, text="Ciudades: ").grid(row=4, column=0, padx=5, pady=5)
+tk.Label(ventana, text="Tefelono: ").grid(row=4, column=0, padx=5, pady=5)
+ctelofono = tk.Entry(ventana, width=30)
+ctelofono.grid(row=4, column=1, padx=5, pady=5)
+
+tk.Label(ventana, text="Ciudades: ").grid(row=5, column=0, padx=5, pady=5)
 cuadro_lista = tk.Listbox(ventana, width=30, height=5, selectmode="multiple")
-cuadro_lista.grid(row=4, column=1, padx=5, pady=5)
+cuadro_lista.grid(row=5, column=1, padx=5, pady=5)
 elementos = ["Cartagena", "Bucaramanga", "Santa Marta", "Bogotá", "Medellín"]
+
 for index, elemento in enumerate(elementos):
     cuadro_lista.insert(tk.END, elemento)
 
-
+tk.Label(ventana, text="Sexo: ").grid(row=6, column=0)
 variable = tk.IntVar()
-tk.Radiobutton(ventana, text="Masculino", variable=variable, value=1, command=obtener_seleccion).grid(row=5, column=1, padx=5, pady=5, sticky="w")
-tk.Radiobutton(ventana, text="Femenino", variable=variable, value=2, command=obtener_seleccion).grid(row=6, column=1, padx=5, pady=5, sticky="w")
+tk.Radiobutton(ventana, text="Masculino", variable=variable, value=1, command=obtener_seleccion).grid(row=6, column=1)
+tk.Radiobutton(ventana, text="Femenino", variable=variable, value=2, command=obtener_seleccion).grid(row=7, column=1)
 
 
-tk.Button(ventana, text="Registrar", command=registrar).grid(row=7, column=1, padx=5, pady=5)
+tk.Button(ventana, text="Registrar", command=registrar).grid(row=8, column=1)
 
 ventana.mainloop()
