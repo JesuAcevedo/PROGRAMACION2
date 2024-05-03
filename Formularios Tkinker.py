@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-def registar():
+def registrar():
     nombre = cnombre.get()
     apellido = capellido.get()
     edad = cedad.get()
@@ -32,41 +32,41 @@ def obtener_ciudad():
     for index in seleccionados:
         ciudades.append(cuadro_lista.get(index))
     return ciudades       
+
 ventana = tk.Tk()
 ventana.title("Tecnar APP")
 ventana.geometry("800x600")
 ventana.resizable(True, True)
-nombre = tk.Label(ventana, text="Nombre: ")
-nombre.place(x=9, y=10)
-cnombre=tk.Entry(ventana, width=30)
-cnombre.place(x=80, y=10)
 
-apellido = tk.Label(ventana, text="Apellido: ")
-apellido.place(x=9, y=40)
-capellido= tk.Entry(ventana, width=30)
-capellido.place(x=80, y=40)
-edad = tk.Label(ventana, text="Edad: ")
-edad.place(x=9, y=70)
+
+tk.Label(ventana, text="Nombre: ").grid(row=0, column=0, padx=5, pady=5, sticky="e")
+cnombre = tk.Entry(ventana, width=30)
+cnombre.grid(row=0, column=1, padx=5, pady=5)
+
+tk.Label(ventana, text="Apellido: ").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+capellido = tk.Entry(ventana, width=30)
+capellido.grid(row=1, column=1, padx=5, pady=5)
+
+tk.Label(ventana, text="Edad: ").grid(row=2, column=0, padx=5, pady=5, sticky="e")
 cedad = tk.Entry(ventana, width=30)
-cedad.place(x=80, y=70)
-direccion = tk.Label(ventana, text="Dirección: ")
-direccion.place(x=9, y=100)
+cedad.grid(row=2, column=1, padx=5, pady=5)
+
+tk.Label(ventana, text="Dirección: ").grid(row=3, column=0, padx=5, pady=5, sticky="e")
 cdireccion = tk.Entry(ventana, width=30)
-cdireccion.place(x=80, y=100)
+cdireccion.grid(row=3, column=1, padx=5, pady=5)
+
+tk.Label(ventana, text="Ciudades: ").grid(row=4, column=0, padx=5, pady=5, sticky="e")
 cuadro_lista = tk.Listbox(ventana, width=30, height=5, selectmode="multiple")
-cuadro_lista.place(x=80, y=140)
-elementos = ["Cartagena","Bucaramanga","Santa Marta","Bogotá","Medellín"]
-for elemento in elementos:
+cuadro_lista.grid(row=4, column=1, padx=5, pady=5)
+elementos = ["Cartagena", "Bucaramanga", "Santa Marta", "Bogotá", "Medellín"]
+for index, elemento in enumerate(elementos):
     cuadro_lista.insert(tk.END, elemento)
 
+
 variable = tk.IntVar()
-casilla_verificacion = tk.Radiobutton(ventana, text="Masculino", variable=variable,value=1  ,command=obtener_seleccion)
-casilla_verificacion.place(x=80, y=250)
-casilla_verificacion2 = tk.Radiobutton(ventana, text="Femenino", variable=variable, value=2 ,command=obtener_seleccion)
-casilla_verificacion2.place(x=80, y=270)
+tk.Radiobutton(ventana, text="Masculino", variable=variable, value=1, command=obtener_seleccion).grid(row=5, column=1, padx=5, pady=5, sticky="w")
+tk.Radiobutton(ventana, text="Femenino", variable=variable, value=2, command=obtener_seleccion).grid(row=6, column=1, padx=5, pady=5, sticky="w")
 
-
-botón = tk.Button(ventana, text="Registrar", command=registar)
-botón.place(x=100, y=300)
+tk.Button(ventana, text="Registrar", command=registrar).grid(row=7, column=1, padx=5, pady=5)
 
 ventana.mainloop()
